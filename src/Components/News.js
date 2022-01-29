@@ -25,7 +25,7 @@ export class News extends Component {
     constructor(props)
     {
         super(props);
-        console.log("Constructor of newsis called");
+        console.log("Constructor of news.js called");
         this.state = {
             articles : [],
             loading : false,
@@ -136,7 +136,7 @@ export class News extends Component {
                     })}    
                     </div> */}
                      <InfiniteScroll
-                        dataLength={this.state.articles.length}
+                        dataLength={this.state.articles.length }
                         next={this.fetchMoreData}
                         hasMore={this.state.articles.length !== this.state.totalResults }
                         loader={<Spinner/>}
