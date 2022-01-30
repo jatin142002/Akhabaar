@@ -30,7 +30,8 @@ export class News extends Component {
             articles : [],
             loading : false,
             page : 1,
-            totalResults : 0
+            totalResults : 0,
+            articlelength : 0
         }
         document.title = `AKHABAAR - ${this.capitalizeFirstLetter(this.props.category)}`
     }
@@ -48,7 +49,8 @@ export class News extends Component {
         this.setState({
             articles : parsedata.articles ,
             totalResults : parsedata.totalResults ,
-            loading : false
+            loading : false,
+            articlelength : this.state.articles.length
         });
         this.props.setProgress(100);
     }
@@ -115,7 +117,8 @@ export class News extends Component {
         this.setState({
             articles : this.state.articles.concat(parsedata.articles) ,
             totalResults : parsedata.totalResults ,
-            loading : false
+            loading : false,
+            articlelength : this.state.articles.length
         });
       };
 
@@ -136,9 +139,9 @@ export class News extends Component {
                     })}    
                     </div> */}
                      <InfiniteScroll
-                        dataLength={(this.state.articles).length }
+                        dataLength={this.state.articlelength }
                         next={this.fetchMoreData}
-                        hasMore={(this.state.articles).length !== this.state.totalResults }
+                        hasMore={this.state.articlelength !== this.state.totalResults }
                         loader={<Spinner/>}
                     >
                     
