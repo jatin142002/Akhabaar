@@ -15,8 +15,8 @@ export class NewsItem extends Component {
                 <div className="card text-white bg-dark">
                 <img style={{height:"15em"}} src={!imageUrl?"https://cdn.pixabay.com/photo/2014/05/21/22/28/old-newspaper-350376_960_720.jpg":imageUrl} className="card-img-top" alt="..."/>
                 <div className="card-body">
-                    <h5 className="card-title">{title}...</h5>
-                    <p className="card-text">{description}...</p>
+                    <h5 className="card-title">{!title?"Not Available":title}...</h5>
+                    <p className="card-text">{!description?"Not Available":description}...</p>
                     <p className="card-text">
                         <small className="text-muted">By {!author?"Unknown":author}<br/></small>
                         <small className="text-muted"> {!date?"Unknown":new Date(date).toGMTString()}</small>
